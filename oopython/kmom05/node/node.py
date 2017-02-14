@@ -9,6 +9,7 @@ class Node:
     Node class
     """
     def __init__(self, initdata):
+        """ init method """
         self.data = initdata
         self.next = None
 
@@ -35,7 +36,7 @@ class Node:
         Sets next node
         """
         self.next = newnext
-        
+
     def __str__(self):
         """ overload str """
         return "This: {}\nNext: {}".format(self.data, self.next.data)

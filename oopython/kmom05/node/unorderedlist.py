@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+""" Unordered list class """
+
+from node import Node
+
+class UnorderedList:
+    """
+    Unordered list
+    """
+
+    def __init__(self):
+        """ init """
+        self.head = None
+
+    def is_empty(self):
+        """
+        Checks if list is empty
+        """
+        return self.head is None
+
+    def add(self, item):
+        """
+        Add item to list
+        """
+        temp = Node(item)
+        temp.set_next(self.head)
+        self.head = temp
+
+    def size(self):
+        """
+        Return size of list
+        """
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.get_next()
+
+        return count
+        
+    def __str__(self):
+        """ overload str """
+        current = self.head
+        result = ""
+        while current != None:
+            result += str(current.data) + "\n"
+            current = current.get_next()
+
+        return result

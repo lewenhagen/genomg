@@ -38,13 +38,3 @@ class UnorderedList:
             current = current.get_next()
 
         return count
-        
-    def __str__(self):
-        """ overload str """
-        current = self.head
-        result = ""
-        while current != None:
-            result += str(current.data) + "\n"
-            current = current.get_next()
-
-        return result

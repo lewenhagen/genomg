@@ -109,6 +109,10 @@ class GomokuClient {
     place(x, y) {
         return this.httpGet("/place/" + x + "/" + y);
     }
+
+    placeRandom() {
+        return this.httpGet("/place/random");
+    }
 }
 
 export default GomokuClient;

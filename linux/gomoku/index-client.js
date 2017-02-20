@@ -20,8 +20,17 @@ var arg;
 import GomokuClient from "./GomokuClient.js";
 
 var gomoku = new GomokuClient();
-var server = "http://localhost:1337";
+var host = "http://localhost";
+if ("LINUX_SERVER" in process.env) {
+    host = process.enc.LINUX_SERVER;
+}
 
+var port = 1337;
+if ('LINUX_PORT' in process.env) {
+    port = process.env.LINUX_PORT;
+}
+
+var server = host + ":" + port;
 
 
 // Make it using prompt
@@ -109,6 +118,7 @@ function menu() {
  start [size]    Prepare to start a game.
  view            View the gamoboard.
  place <x> <y>   Place a marker.
+ place random    Place a random marker.
  url             get url to view game in browser.`);
 }
 
@@ -163,17 +173,35 @@ rl.on("line", function(line) {
 
         case "place":
             var x = args[1];
-            var y = args[2];
 
-            gomoku.place(x, y)
-            .then(value => {
-                console.log(value);
-                rl.prompt();
-            })
-            .catch(err => {
-                console.log("FAILED: Could not place the marker.\nDetails: " + err);
-                rl.prompt();
-            });
+            if (x === "random") {
+                var y = args[2];
+
+                gomoku.placeRandom()
+                .then(value => {
+                    console.log(value);
+                    rl.prompt();
+                })
+                .catch(err => {
+                    console.log("FAILED: Could not place the marker.\nDetails: " + err);
+                    rl.prompt();
+                });
+            } else {
+                var y = args[2];
+
+                gomoku.place(x, y)
+                .then(value => {
+                    console.log(value);
+                    rl.prompt();
+                })
+                .catch(err => {
+                    console.log("FAILED: Could not place the marker.\nDetails: " + err);
+                    rl.prompt();
+                });
+            }
+
+
+
             break;
 
         case "url":

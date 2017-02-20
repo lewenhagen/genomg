@@ -35,6 +35,41 @@ function sendJSONResponse(res, content, code = 200) {
     res.end();
 }
 
+/**
+ * Returns a random integer between min (included) and max (included)
+ * Using Math.round() will give you a non-uniform distribution!
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+ */
+function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+/**
+ * Place a marker on the board.
+ */
+function placeRandom() {
+    var x, y,
+        player = gameBoard.playerInTurn();
+
+    while (!gameBoard.isFull()) {
+        x = getRandomIntInclusive(0, gameBoard.size);
+        y = getRandomIntInclusive(0, gameBoard.size);
+
+        if (!gameBoard.isPositionTaken(x, y)) {
+            break;
+        }
+    }
+
+    try {
+        gameBoard.place(x, y);
+    } catch (e) {
+        return e.message;
+    }
+
+    return "OK. Placed x: " + x + ", y: " + y;
+}
 
 
 /**
@@ -148,6 +183,28 @@ router.get("/place/:x/:y", (req, res) => {
 
     sendJSONResponse(res, {
         "action": "Trying to place " + x + ", " + y,
+        "message": message,
+        "boardSize": gameBoard.getSize(),
+        "nextPlayer": gameBoard.playerInTurn(),
+        "nextPlayerMarker": gameBoard.playerInTurnMarker(),
+        "boardIsFull": gameBoard.isFull()
+    });
+});
+
+
+
+/**
+ * View the gameboard
+ *
+ * @param Object req The request
+ * @param Object res The response
+ */
+router.get("/place/random", (req, res) => {
+
+    let message = placeRandom();
+
+    sendJSONResponse(res, {
+        "action": "Trying to place a random marker",
         "message": message,
         "boardSize": gameBoard.getSize(),
         "nextPlayer": gameBoard.playerInTurn(),

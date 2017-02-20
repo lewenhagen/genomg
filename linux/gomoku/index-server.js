@@ -20,7 +20,9 @@ var arg;
 import server from "./GomokuServer.js";
 
 var port = 1337;
-
+if ('LINUX_PORT' in process.env) {
+    port = process.env.LINUX_PORT;
+}
 
 
 /**

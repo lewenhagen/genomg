@@ -37,22 +37,37 @@ function getRandomIntInclusive(min, max) {
 /**
  * Place a marker on the board.
  */
-function placeMarker() {
+function placeMarker(line = "") {
     var x, y,
         player = gameBoard.playerInTurn();
 
-    while (!gameBoard.isFull()) {
-        x = getRandomIntInclusive(0, size);
-        y = getRandomIntInclusive(0, size);
+    if (line != "") {
+        let placeArgs = line.split(" ");
+        if (placeArgs.length > 1 &&
+            Number.isInteger(parseInt(placeArgs[0])) &&
+            Number.isInteger(parseInt(placeArgs[1]))) {
 
-        if (!gameBoard.isPositionTaken(x, y)) {
-            break;
+            x = parseInt(placeArgs[0]);
+            y = parseInt(placeArgs[1]);
+        }
+    } else {
+        while (!gameBoard.isFull()) {
+            x = getRandomIntInclusive(0, size);
+            y = getRandomIntInclusive(0, size);
+
+            if (!gameBoard.isPositionTaken(x, y)) {
+                break;
+            }
         }
     }
 
-    gameBoard.place(x, y);
-    console.log(">>> " + player + " places " + x + " " + y + "\n");
-    console.log(gameBoard.asAscii());
+    try {
+        gameBoard.place(x, y);
+        console.log(">>> " + player + " places " + x + " " + y + "\n");
+        console.log(gameBoard.asAscii());
+    } catch (e) {
+        console.log(e.message);
+    }
 }
 
 
@@ -64,7 +79,7 @@ rl.on("line", function(line) {
             process.exit(0);
             break;
         default:
-            placeMarker();
+            placeMarker(line.trim());
     }
     rl.prompt();
 });

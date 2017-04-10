@@ -38,3 +38,10 @@ class UnorderedList:
             current = current.get_next()
 
         return count
+
+    def print_list(self):
+        """ prints list """
+        current = self.head
+        while current != None:
+            print(current.data)
+            current = current.get_next()

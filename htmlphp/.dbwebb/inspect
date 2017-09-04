@@ -1,0 +1,181 @@
+#
+# Inspect, tools to inspect a kmom.
+# 
+# Usage: dbwebb inspect kmom01
+#
+# Sequence executed:
+# htmlphp(), htmlphpkmom01(), htmlphplast()
+#
+
+
+
+#
+# Test general, always executed first
+#
+htmlphp()
+{
+    TREE_OPTIONS="-d"
+    inspectIntro
+    
+    local meDir=
+    
+    meDir="$( echo "$KMOM" | sed 's/kmom0/me/g' | sed 's/kmom/me/g' )"
+    METARGET="me/$KMOM/$meDir"
+}
+
+
+
+#
+# Test general, last in sequence
+#
+htmlphplast()
+{
+    :
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom01()
+{
+    inspectLab "uppgift/php-lab1-uttryck-datatyper-och-variabler" "lab1" "answer.php" "php answer.php"
+
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/skapa-en-me-sida-i-kursen-htmlphp"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom02()
+{
+    inspectLab "uppgift/php-lab2-villkor-loopar-och-inbyggda-funktioner" "lab2" "answer.php" "php answer.php"
+    
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/bygg-ut-din-htmlphp-me-sida-till-version-2"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom03()
+{
+    inspectLab "uppgift/php-lab3-arrayer" "lab3" "answer.php" "php answer.php"
+    
+    viewFileContent "multipage.php" "$METARGET"
+    
+    inspectExercise "multi" "uppgift/bygg-en-multisida-och-testa-arrayer"
+    
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/bygg-ut-din-htmlphp-me-sida-till-version-3"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom04()
+{
+    inspectLab "uppgift/php-lab4-skapa-egna-funktioner" "lab4" "answer.php" "php answer.php"
+    
+    TREE_OPTIONS="-d"
+    
+    inspectExercise "stylechooser" "uppgift/bygg-en-stylevaljare-till-din-webbplats"
+
+    viewFileContent "config.php" "$METARGET" "incl/config.php"
+
+    viewFileContent "stylechooser.php" "$METARGET"
+
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/bygg-ut-din-me-sida-till-version-4"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom05()
+{
+    inspectLab "uppgift/php-lab5-utforska-inbyggda-funktioner" "lab5" "answer.php" "php answer.php"
+    
+    TREE_OPTIONS="-d"
+
+    viewFileContent "jetty.php" "$METARGET"
+    viewFileContent "search.php" "$METARGET"
+    viewFileContent "config.php" "$METARGET"
+
+    # htmlphpsqllab "sql1"
+
+    inspectExercise "jetty" "uppgift/bygg-en-multisida-for-att-soka-i-en-databas"
+
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/htmlphp-projekt-5"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom06()
+{
+    inspectLab "uppgift/php-lab6-php-pdo-och-databasen-sqlite" "lab6" "answer.php" "php answer.php"
+    
+    TREE_OPTIONS="-d"
+    
+    viewFileContent "admin.php" "$METARGET"
+    
+    inspectMe "$METARGET" "me.php" "report.php" "uppgift/bygg-ut-din-htmlphp-me-sida-till-version-6"
+}
+
+
+
+#
+# Test kmom
+#
+htmlphpkmom10()
+{
+    TREE_OPTIONS="-d"
+    inspectExercise "bmo" "htmlphp/kmom10" "" "" "-"
+    
+    TREE_OPTIONS="-d"
+    inspectMe "me/kmom06/me6" "me.php" "report.php" ""
+}
+
+
+
+# ---------------------- CLEAN AWAY ------------------------------------------
+#
+# REPLACE with inspectLab
+#
+htmlphplab()
+{
+    local lab="$1"
+    local target="me/$KMOM/$lab"
+    
+    headerForTest "-- Lab" "-- ${DBW_WWW}$DBW_COURSE/$lab" 
+    openFilesInEditor "$target"
+    checkKmomDir "$target"
+    printUrl "" "$target"  
+    inspectCommand "answer.php" "$EXEC_DIR/$KMOM/$lab" "php answer.php"
+}
+
+
+
+#
+# REPLACE with inspectLab
+#
+htmlphpsqllab()
+{
+    local lab="$1"
+    local target="me/$KMOM/$lab"
+    
+    headerForTest "-- Lab" "-- ${DBW_WWW}$DBW_COURSE/$lab" 
+    openFilesInEditor "$target"
+    checkKmomDir "$target"
+    printUrl "" "$target"  
+    inspectCommand "answer.bash" "$EXEC_DIR/$KMOM/$lab" "./answer.bash"
+}

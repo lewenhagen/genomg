@@ -1,0 +1,144 @@
+# --------------------------------------------------------------------------
+#
+# Init
+#
+dbwebb init-me
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom01
+#
+
+# lab1
+cd me/kmom01 && dbwebb recreate lab1
+cd me/kmom01/lab1 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab1
+
+#
+# me http://dbwebb.se/kunskap/skapa-en-webbsida-med-html-css-och-php
+#
+# changed mkdir to install -d to support re-running tests
+cd me/kmom01 && install -d me/img me/css me/incl
+cd me/kmom01 && touch me/me.php me/about.php me/report.php me/css/style.css
+cd me/kmom01 && touch me/incl/header.php me/incl/footer.php me/incl/byline.php
+cd me/kmom01 && wget --no-check-certificate -O me/img/me-small.jpg https://dbwebb.se/img/mikael-roos/me-happy.jpg
+cd me/kmom01 && wget --no-check-certificate -O me/img/me.jpg https://dbwebb.se/img/mikael-roos/me-2.jpg
+cd me/kmom01 && wget --no-check-certificate -O me/img/favicon.ico https://dbwebb.se/favicon.ico
+cd me/kmom01 && wget --no-check-certificate -O me/img/logo.jpg https://dbwebb.se/image/tema/trad/4.jpg?w=200
+
+
+
+#
+# me1 http://dbwebb.se/uppgift/skapa-en-me-sida-i-kursen-htmlphp
+#
+cd me/kmom01 && rsync -a me/ me1/
+cd me/kmom01 && rm -rf me
+
+# remove style.css to avoid csslint warning for empty file
+cd me/kmom01 && rm me1/css/style.css
+
+dbwebb validate me1
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom02
+#
+
+# lab2
+cd me/kmom02 && dbwebb recreate lab2
+cd me/kmom02/lab2 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab2
+
+# me2
+cd me && cp -r kmom01/me1/* kmom02/me2/
+dbwebb validate me2
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom03
+
+#
+# lab3
+#
+cd me/kmom03 && dbwebb recreate lab3
+cd me/kmom03/lab3 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab3
+
+
+
+#
+# multi
+#
+cp -r example/multipage/* me/kmom03/multi/
+dbwebb validate multi
+
+
+
+
+#
+# me3
+#
+cd me && cp -r kmom02/me2/* kmom03/me3/
+dbwebb validate me3
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom04
+#
+
+#
+# lab4
+#
+cd me/kmom04 && dbwebb recreate lab4
+cd me/kmom04/lab4 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab4
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom05
+#
+
+#
+# lab5
+#
+cd me/kmom05 && dbwebb recreate lab5
+cd me/kmom05/lab5 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab5
+
+#
+# sql1
+#
+cd me/kmom05 && dbwebb recreate sql1
+cd me/kmom05/sql1 && ./answer.bash; [[ $? = 42 ]]
+dbwebb validate sql1
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom06
+#
+
+#
+# lab6
+#
+cd me/kmom06 && dbwebb recreate lab6
+cd me/kmom06/lab6 && php answer.php; [[ $? = 42 ]]
+dbwebb validate lab6
+
+
+
+# --------------------------------------------------------------------------
+#
+# Kmom10
+#

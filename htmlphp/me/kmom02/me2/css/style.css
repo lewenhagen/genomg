@@ -1,5 +1,6 @@
 html {
-    background-color: #9c9;
+    background-color: #b2b6bf;
+    overflow-y: scroll;
 }
 
 .me {
@@ -58,17 +59,29 @@ body {
     padding: 0.5em 1em;
     border: 1px solid #999;
     text-decoration: none;
+    color: black;
 }
 
 .navbar a:hover {
     background-color: #eee;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+.selected {
+    background-color: #eee;
 }
 
 /**
  * FLOAT
  **/
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
 
 .float-wrapper div {
     text-align: center;
@@ -90,6 +103,7 @@ body {
 
 .yellow {
     background-color: yellow;
+    clear: both;
 }
 
 .purple {
@@ -99,3 +113,18 @@ body {
 /**
  * ARTICLE
  **/
+
+.byline {
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.byline img {
+    width: 75px;
+}
+
+@media(max-width: 980px) {
+    html {
+        background-color: green;
+    }
+}

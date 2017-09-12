@@ -1,4 +1,6 @@
-<?php include("incl/header.php"); ?>
+<?php
+$title = "redovisning";
+include("incl/header.php"); ?>
     <h1>Redovisningar</h1>
     <h3>Kmom01</h3>
     <p>lite text om kmom01</p>

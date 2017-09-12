@@ -1,4 +1,6 @@
-<?php include("incl/header.php"); ?>
+<?php
+$title = "float";
+include("incl/header.php"); ?>
 
 <div class="float-wrapper">
     <div class="red">1</div>

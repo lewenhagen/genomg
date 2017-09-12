@@ -9,16 +9,16 @@
 <body>
     <header class="site-header">
         <img src="img/logo.png" alt="logo" />
-        <span class="site-title">Me-Sida för Kenneth</span>
-        <span class="site-slogan">Min första fina me-sida är på gång</span>
+        <span class="site-title">Me-Sida för genomgångar</span>
+        <span class="site-slogan">"En perfekt slogan"</span>
     </header>
     <nav class="navbar">
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "me.php" ? "selected" : ""; ?>" href="me.php">Hem</a>
-        <a href="report.php">Redovisning</a>
-        <a href="about.php">Om</a>
-        <a href="float.php">Float</a>
-        <a href="article.php">Article</a>
-        <a href="array.php">Array</a>
-        <a href="get-post.php">$_GET $_POST</a>
-        <a href="switch.php">Switch case</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "report.php" ? "selected" : ""; ?>" href="report.php">Redovisning</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "about.php" ? "selected" : ""; ?>" href="about.php">Om</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "float.php" ? "selected" : ""; ?>" href="float.php">Float</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "article.php" ? "selected" : ""; ?>" href="article.php">Article</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "array.php" ? "selected" : ""; ?>" href="array.php">Array</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "get-post.php" ? "selected" : ""; ?>" href="get-post.php">$_GET $_POST</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "switch.php" ? "selected" : ""; ?>" href="switch.php">Switch case</a>
     </nav>

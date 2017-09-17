@@ -21,4 +21,5 @@
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "array.php" ? "selected" : ""; ?>" href="array.php">Array</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "get-post.php" ? "selected" : ""; ?>" href="get-post.php">$_GET $_POST</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "switch.php" ? "selected" : ""; ?>" href="switch.php">Switch case</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "stylechooser.php" ? "selected" : ""; ?>" href="stylechooser.php">Stylechooser</a>
     </nav>

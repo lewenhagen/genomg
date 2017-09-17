@@ -124,6 +124,16 @@ body {
     width: 75px;
 }
 
+aside {
+    width: 30%;
+    float: left;
+}
+
+.stylechooser-main {
+    width: 70%;
+    float: left;
+}
+
 @media(max-width: 980px) {
     html {
         background-color: green;

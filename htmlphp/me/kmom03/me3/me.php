@@ -1,6 +1,7 @@
 <?php
 $title = "me";
-include("incl/header.php");?>
+include("incl/header.php");
+?>
 
 <h1>Om Mig Själv</h1>
 <p>Här kommer snart min egen fina me-sida.</p>

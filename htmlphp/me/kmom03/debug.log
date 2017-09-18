@@ -1,0 +1,26 @@
+[2768:14364:0912/125116.194:VERBOSE1:crash_service_main.cc(78)] Session start. cmdline is [--reporter-url=https://crashreporter.atom.io --application-name=Atom "--crashes-directory=C:\tools\cygwin\tmp\Atom Crashes" --v=1]
+[2768:14364:0912/125116.194:VERBOSE1:crash_service.cc(142)] window handle is 000000000003029C
+[2768:14364:0912/125116.194:VERBOSE1:crash_service.cc(284)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\tools\cygwin\tmp\Atom Crashes
+[2768:14364:0912/125116.194:VERBOSE1:crash_service.cc(288)] checkpoint is C:\tools\cygwin\tmp\Atom Crashes\crash_checkpoint.txt
+server is https://crashreporter.atom.io
+maximum 128 reports/day
+reporter is electron-crash-service
+[2768:14364:0912/125116.194:VERBOSE1:crash_service_main.cc(94)] Ready to process crash requests
+[2768:5436:0912/125116.194:VERBOSE1:crash_service.cc(317)] client start. pid = 2564
+[2768:5436:0912/125116.569:VERBOSE1:crash_service.cc(317)] client start. pid = 10176
+[7700:14332:0912/125116.576:VERBOSE1:crash_service_main.cc(78)] Session start. cmdline is [--reporter-url=https://crashreporter.atom.io --application-name=Atom "--crashes-directory=C:\tools\cygwin\tmp\Atom Crashes" --v=1]
+[7700:14332:0912/125116.578:VERBOSE1:crash_service.cc(142)] window handle is 00000000000302B2
+[7700:14332:0912/125116.578:VERBOSE1:crash_service.cc(284)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\tools\cygwin\tmp\Atom Crashes
+[7700:14332:0912/125116.578:VERBOSE1:crash_service.cc(288)] checkpoint is C:\tools\cygwin\tmp\Atom Crashes\crash_checkpoint.txt
+server is https://crashreporter.atom.io
+maximum 128 reports/day
+reporter is electron-crash-service
+[7700:14332:0912/125116.578:ERROR:crash_service.cc(295)] could not start dumper
+[2768:14364:0912/155325.478:VERBOSE1:crash_service.cc(486)] session ending..
+[2768:14364:0912/155325.478:VERBOSE1:crash_service.cc(491)] clients connected :2
+clients terminated :0
+dumps serviced :0
+dumps reported :0
+[2768:14364:0912/155325.478:VERBOSE1:crash_service_main.cc(99)] Session end. return code is 0

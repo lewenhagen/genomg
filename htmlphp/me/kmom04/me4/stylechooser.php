@@ -1,4 +1,5 @@
 <?php
+$title = "Stylechooser";
 include("incl/header.php");
 
 $page = isset($_GET["page"]) ? htmlentities($_GET["page"]) : "intro";

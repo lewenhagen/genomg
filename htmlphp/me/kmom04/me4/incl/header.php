@@ -1,9 +1,10 @@
+<?php include("incl/config.php"); ?>
 <!doctype html>
 <html lang="sv">
 <head>
   <meta charset="utf-8">
   <title><?=$title; ?></title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?=$stylesheet;?>">
   <link rel='shortcut icon' href='img/favicon.ico'/>
 </head>
 <body>
@@ -13,7 +14,7 @@
         <span class="site-slogan">"En perfekt slogan"</span>
     </header>
     <nav class="navbar">
-        <a class="<?= basename($_SERVER['REQUEST_URI']) == "me.php" ? "selected" : ""; ?>" href="me.php">Hem</a>
+        <a class="<?= selected("me.php"); ?>" href="me.php">Hem</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "report.php" ? "selected" : ""; ?>" href="report.php">Redovisning</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "about.php" ? "selected" : ""; ?>" href="about.php">Om</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "float.php" ? "selected" : ""; ?>" href="float.php">Float</a>

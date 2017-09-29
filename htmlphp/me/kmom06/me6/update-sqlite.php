@@ -10,7 +10,7 @@ if (isset($_GET["edit"])) {
 ?>
 
 <div class="manageForms">
-    <form action="manage-process.php">
+    <form action="sqlite-process.php">
         <h3>Update</h3>
         <label>id: <input type="text" name="id" value="<?=$editPerson['id']?>" readonly="readonly"></label>
         <label>Firstname: <input type="text" name="firstname" value="<?=$editPerson['firstname']?>"></label>

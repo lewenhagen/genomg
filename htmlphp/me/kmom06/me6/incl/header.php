@@ -24,5 +24,5 @@
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "switch.php" ? "selected" : ""; ?>" href="switch.php">Switch</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "stylechooser.php" ? "selected" : ""; ?>" href="stylechooser.php">Stylechooser</a>
         <a class="<?= basename($_SERVER['REQUEST_URI']) == "sqlite.php" ? "selected" : ""; ?>" href="sqlite.php">SQLite</a>
-        <a class="<?= basename($_SERVER['REQUEST_URI']) == "manage-sqlite.php" ? "selected" : ""; ?>" href="manage-sqlite.php">SQLite2</a>
+        <a class="<?= basename($_SERVER['REQUEST_URI']) == "insert-sqlite.php" ? "selected" : ""; ?>" href="insert-sqlite.php">SQLite2</a>
     </nav>

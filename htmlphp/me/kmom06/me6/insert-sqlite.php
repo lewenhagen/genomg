@@ -4,7 +4,7 @@ include("incl/header.php");
 
 ?>
 <div class="manageForms">
-    <form action="manage-process.php">
+    <form action="sqlite-process.php">
         <h3>Insert</h3>
         <label>Firstname: <input type="text" name="firstname"></label>
         <label>Lastname: <input type="text" name="lastname"></label>

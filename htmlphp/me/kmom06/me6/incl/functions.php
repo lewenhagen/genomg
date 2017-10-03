@@ -24,7 +24,6 @@ function printTable($res)
     $html .= "<th>Last</th>";
     $html .= "<th>Acr</th>";
     $html .= "<th>Phone</th>";
-    $html .= "<th>Action</th>";
     $html .= "</tr>";
 
     $rows = null;
@@ -35,25 +34,10 @@ function printTable($res)
         $rows .= "<td>{$row['lastname']}</td>";
         $rows .= "<td>{$row['acronym']}</td>";
         $rows .= "<td>{$row['phone']}</td>";
-        $rows .= "<td><a href='update-sqlite.php?edit={$row['id']}'>Edit</a> | <a href='sqlite.php?search=%&delete={$row['id']}'>Delete</a></td>";
         $rows .= "</tr>";
     }
 
     $html .= $rows . "</table>";
 
     return $html;
-}
-
-function deleteRowFromId($db, $id)
-{
-    $stmt = $db->prepare("DELETE FROM persons WHERE id = $id");
-    $stmt->execute();
-}
-
-function getPerson($db, $id)
-{
-    $stmt = $db->prepare("SELECT * FROM persons WHERE id = $id");
-    $stmt->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $res[0];
 }

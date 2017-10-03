@@ -1,19 +1,15 @@
 <?php
-$title = "Manage SQLite";
+$title = "Insert";
 include("incl/header.php");
-
 ?>
-<div class="manageForms">
-    <form action="sqlite-process.php">
-        <h3>Insert</h3>
-        <label>Firstname: <input type="text" name="firstname"></label>
-        <label>Lastname: <input type="text" name="lastname"></label>
-        <label>Acronym: <input type="text" name="acronym"></label>
-        <label>Phone: <input type="text" name="phone"></label>
-        <input type="submit" value="insert" name="action">
-    </form>
-</div>
 
-
+<form class="sqliteform">
+    <h3>Insert</h3>
+    Firstname: <input type="text" name="firstname">
+    Lastname: <input type="text" name="lastname">
+    Acronym: <input type="text" name="acronym">
+    Phone: <input type="text" name="phone">
+    <input type="submit" name="action" value="insert">
+</form>
 
 <?php include("incl/footer.php"); ?>

@@ -17,15 +17,11 @@ body {
     min-height: 600px;
 }
 
-label {
+.sqliteform input[type="text"] {
     display: block;
     width: 100px;
 }
 
-.manageForms {
-    float: left;
-    width: 33%;
-}
 
 /**
  * HEADER

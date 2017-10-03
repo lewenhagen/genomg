@@ -5,9 +5,7 @@ include("incl/functions.php");
 
 $db = connect();
 
-if (isset($_GET["delete"])) {
-    deleteRowFromId($db, htmlentities($_GET["delete"]));
-}
+//
 
 $search = isset($_GET["search"]) ? htmlentities($_GET["search"]) : null;
 ?>
@@ -19,7 +17,7 @@ $search = isset($_GET["search"]) ? htmlentities($_GET["search"]) : null;
 <?php
 
 if (is_null($search)) {
-    die("<p>Sök efter någon.</p>");
+    die("<p>Ingen sökning gjord än.</p>");
 }
 
 $params = ["%$search%", "%$search%", "%$search%", "%$search%"];

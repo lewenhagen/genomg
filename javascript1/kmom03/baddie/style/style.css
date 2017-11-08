@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 2em;
+    width: 900px;
+    height: 600px;
+    background-color: #FFF1E8;
+    border: 1px solid black;
+}
+
+.baddie {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: url("../img/baddie1.png");
+    background-size: 100px;
+}
+
+.baddie-left {
+    transform: rotateY(180deg);
+}

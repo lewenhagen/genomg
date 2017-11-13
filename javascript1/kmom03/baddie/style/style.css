@@ -4,7 +4,8 @@ h1 {
 
 .content {
     margin: 0 auto;
-    padding: 2em;
+    position: relative;
+    /*padding: 2em;*/
     width: 900px;
     height: 600px;
     background-color: #FFF1E8;

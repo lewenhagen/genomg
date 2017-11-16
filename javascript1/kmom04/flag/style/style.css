@@ -1,0 +1,115 @@
+h1 {
+    text-align: center;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 2em;
+    width: 900px;
+    height: 600px;
+    background-color: #FFF1E8;
+    border: 1px solid black;
+}
+
+.flag {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    border: 1px solid black;
+}
+
+.sweden {
+    width: 320px;
+    height: 200px;
+    background-color: #006AA7;
+}
+
+.sweden .part1 {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    height: 40px;
+    width: 320px;
+    background-color: #FECC00;
+}
+
+.sweden .part2 {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    height: 200px;
+    width: 40px;
+    background-color: #FECC00;
+}
+
+.benin {
+    background-color: #008850;
+    width: 300px;
+    height: 200px;
+}
+
+.benin .part1 {
+    background-color: #FCD20F;
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    top: 0;
+    left: 100px;
+}
+
+.benin .part2 {
+    background-color: #E90829;
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    top: 100px;
+    left: 100px;
+}
+
+.colombia {
+    background-color: #FCD20F;
+    width: 300px;
+    height: 200px;
+}
+
+.colombia .part1 {
+    background-color: #002F80;
+    position: absolute;
+    height: 50px;
+    width: 300px;
+    top: 100px;
+    left: 0;
+}
+
+.colombia .part2 {
+    background-color: #CF0821;
+    position: absolute;
+    height: 50px;
+    width: 300px;
+    top: 150px;
+    left: 0;
+}
+
+.finland {
+    width: 320px;
+    height: 200px;
+    background-color: #fff;
+}
+
+.finland .part1 {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    height: 40px;
+    width: 320px;
+    background-color: #003281;
+}
+
+.finland .part2 {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    height: 200px;
+    width: 40px;
+    background-color: #003281;
+}

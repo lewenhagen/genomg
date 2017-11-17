@@ -105,7 +105,7 @@
     // volvo.init("Volvo", "blue", kalle);
     //
     // console.log(volvo.present());
-    function bag() {
+    function Bag() {
         var items = [];
         this.addItem = function(item) {
             items.push(item);
@@ -115,7 +115,7 @@
         }
     }
 
-    function person(name, age, bag) {
+    function Person(name, age, bag) {
         this.bag = bag;
         this.name = name;
         this.age = age;
@@ -126,8 +126,9 @@
             return this.bag.look();
         }
     }
-    var bag1 = new bag();
-    var bag2 = new bag();
+    var bag1 = new Bag();
+    var bag2 = new Bag();
+
     console.log(bag.items);
 
     var kalle = new person("Kalle", 25, bag1);

@@ -1,0 +1,26 @@
+html, body {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.box {
+    position: absolute;
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+}
+
+.green {
+    background-color: green;
+}
+
+.size200 {
+    height: 200px;
+    width: 200px;
+}

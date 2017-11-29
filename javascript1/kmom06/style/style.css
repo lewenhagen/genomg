@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+body {
+    font-family: 'Abel', sans-serif;
+    background-color: #6CA2B2;
+
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    /*color: green;*/
+    text-align: center;
+}
+
+.content {
+    z-index: 0;
+    /*border: 1px solid black;*/
+    background-color: #FFE6CD;
+    padding: 1em;
+    margin: 0 auto;
+    height: 690px;
+    width: 800px;
+    /*border-radius: 30px;*/
+    overflow: auto;
+}
+
+.leftSide {
+    float: left;
+}
+
+.rightSide {
+    float: left;
+    height: 500px;
+    /*background-color: green;*/
+    /*background-color: #CDF3FF;*/
+    margin-left: 40px;
+    padding-left: 10px;
+    width: 320px;
+    border-left: 1px solid black;
+}
+
+.bottom {
+    clear: both;
+    font-size: 2em;
+}
+
+.letter {
+    float: left;
+    margin: 2.5px;
+    height: 45px;
+    width: 50px;
+    border: 0.5px solid black;
+    text-align: center;
+    border-radius: 20%;
+    box-shadow: 5px 5px 5px #444;
+}
+
+.letter:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+.hiddenLetters {
+    font-size: 2em;
+    letter-spacing: 10px;
+}
+
+.guessedLetters {
+    /*clear: left;*/
+    display: block;
+    margin-top: 20px;
+    font-size: 2em;
+    letter-spacing: 10px;
+}
+
+.loserDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    float: left;
+    text-align: center;
+    font-size: 100px;
+}
+
+.winnerDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background-color: lightgreen;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    float: left;
+    text-align: center;
+    font-size: 100px;
+}
+
+.infoText {
+    font-size: 200px;
+}

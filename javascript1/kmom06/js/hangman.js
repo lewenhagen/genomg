@@ -35,13 +35,16 @@ window.Hangman = (function () {
         ],
 
         "words": [
-            "Skärm",
-            "Telefon",
-            "Bokträd",
-            "Musik",
-            "Kamera",
-            "Vatten",
-            "Kaffe"
+            "ALGOL58",
+            "BASIC",
+            "Cobra",
+            "Clojure",
+            "Cayenne",
+            "Darwin",
+            "Fjölnir",
+            "GOAL",
+            "Haskell",
+            "Maya"
         ],
 
 

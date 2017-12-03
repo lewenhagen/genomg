@@ -1,8 +1,8 @@
-window.module = (function() {
+var module = (function() {
 
     var privateVar = 5;
 
-    var module = {
+    return {
 
         "addNumbers": function(a, b) {
             return a + b;
@@ -14,8 +14,13 @@ window.module = (function() {
 
         "getRandFloat": function(min, max, dec) {
             return parseFloat(Math.random() * (max - min) + min).toFixed(dec);
+        },
+
+        "test": function() {
+            privateVar++;
+            return privateVar;
         }
     };
 
-    return module;
+    // return module;
 })();

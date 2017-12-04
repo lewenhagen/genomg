@@ -86,11 +86,11 @@ window.Hangman = (function () {
         },
 
         "setWord": function(newWord) {
-            this.activeWord = newWord;
+            activeWord = newWord;
         },
 
         "peek": function() {
-            return this.activeWord;
+            return activeWord;
         },
 
 

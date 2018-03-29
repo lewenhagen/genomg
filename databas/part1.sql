@@ -1,29 +1,34 @@
-DROP DATABASE IF EXISTS kmom02;
-CREATE DATABASE kmom02;
+DROP DATABASE IF EXISTS course;
+CREATE DATABASE course;
 
-USE kmom02;
+USE course;
 
-DROP TABLE IF EXISTS fruits;
+DROP TABLE IF EXISTS people;
 
-CREATE TABLE fruits(id INT, fname VARCHAR(20), color VARCHAR(10), stock INT);
+CREATE TABLE people
+(
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    born DATE, 
+    project VARCHAR(40)
+);
 
-INSERT INTO fruits VALUES
-	(1, "Apple", "green", 15),
-    (2, "Banana", "yellow", 14),
-    (3, "Cherry", "red", 765),
-    (4, "Blueberry", "blue", 7),
-    (5, "Orange", "orange", 76),
-    (6, "Lemon", "yellow", 32),
-    (7, "Grape", "green", 8),
-    (8, "Honeyberry", "blue", 14),
-    (9, "Jackfruit", "green", 65),
-    (10, "Kumquat", "orange", 100),
-	(10, "Strawberry", "red", 267)
+INSERT INTO people VALUES
+	("Tom", "Ellis", "1978-11-17", "Lucifer"),
+    ("Taylor", "Shilling", "1984-07-27", "Orange Is the New Black"),
+    ("Dichen", "Lachman", "1982-02-22", "Altered Carbon"),
+    ("Laverne", "Cox", "1972-05-29", "Orange Is the New Black"),
+    ("Danielle", "Brooks", "1989-11-17", "Orange Is the New Black"),
+    ("Andrew", "Lincoln", "1973-11-14", "The Walking Dead"),
+    ("Tricia", "Helfer", "1974-04-11", "Lucifer"),
+    ("Norman", "Reedus", "1969-01-06", "The Walking Dead"),
+    ("Joel", "Kinnaman", "1979-11-25", "Altered Carbon"),
+    ("Chris", "Conner", "1975-04-04", "Altered Carbon"),
+    ("Cillian", "Murphy", "1976-05-25", "Peaky Blinders"),
+    ("Melissa", "McBride", "1965-05-23", "The Walking Dead"),
+    ("Paul", "Anderson", "1978-02-12", "Peaky Blinders"),
+    ("Helen", "McCrory", "1968-08-17", "Peaky Blinders"),
+	("David", "Attenborough", "1926-05-08", "The Blue Planet"),
+	("Lauren", "Cohan", "1982-01-07", "The Walking Dead")
 ;
 
--- 1
-SELECT color, COUNT(*) AS amount FROM fruits GROUP BY color;
--- 2
-SELECT color, COUNT(*) AS amount, stock FROM fruits GROUP BY color HAVING stock > 32;
--- 3
-SELECT CONCAT('There are ', stock, ' ', fname, ' in stock') AS Result FROM fruits ORDER BY fname ASC;

@@ -1,0 +1,12 @@
+katt 4
+hund 4
+höna 2
+kakadua 2
+gris 4
+tusenfoting 32
+spindel 8
+skalbagge 6
+skalbagge 8
+skalbagge 4
+orm 0
+lejon 4

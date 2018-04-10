@@ -15,19 +15,6 @@ CREATE TABLE tvshows
     PRIMARY KEY (id)
 );
 
-CREATE TABLE people
-(
-	id INT AUTO_INCREMENT NOT NULL,
-    firstname VARCHAR(20),
-    lastname VARCHAR(20),
-    born DATE,
-    tvshow_id INT,
-    country_id INT,
-    PRIMARY KEY(id),
-    FOREIGN KEY (tvshow_id) REFERENCES tvshows(id),
-    FOREIGN KEY (country_id) REFERENCES places(id)
-);
-
 CREATE TABLE places
 (
 	id INT AUTO_INCREMENT NOT NULL,
@@ -35,6 +22,19 @@ CREATE TABLE places
     country VARCHAR(20),
     
     PRIMARY KEY(id)
+);
+
+CREATE TABLE people
+(
+	id INT AUTO_INCREMENT NOT NULL,
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    born DATE,
+    tvshows_id INT,
+    places_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY (tvshows_id) REFERENCES tvshows(id),
+    FOREIGN KEY (places_id) REFERENCES places(id)
 );
 
 INSERT INTO tvshows (title, air_year, nr_of_seasons) VALUES
@@ -66,7 +66,7 @@ INSERT INTO places (city, country) VALUES
 ;
 
 
-INSERT INTO people (firstname, lastname, born, tvshow_id, country_id) VALUES
+INSERT INTO people (firstname, lastname, born, tvshows_id, places_id) VALUES
 	("Tom", "Ellis", "1978-11-17", 1, 3),
     ("Taylor", "Shilling", "1984-07-27", 2, 4),
     ("Dichen", "Lachman", "1982-02-22", 3, 5),
@@ -86,9 +86,9 @@ INSERT INTO people (firstname, lastname, born, tvshow_id, country_id) VALUES
 ;
 
 -- Add some people without tvshow
-INSERT INTO people (firstname, lastname, born, country_id) VALUES
+INSERT INTO people (firstname, lastname, born, places_id) VALUES
 	("Gustaf", "Skarsgård", "1980-11-12", 2),
     ("Katheryn", "Winnick", "1977-12-17", 1)
 ;
 
--- SELECT * FROM people;
+SELECT * FROM places;

@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS course;
 CREATE DATABASE course;
 
+GRANT ALL ON course.* TO user@localhost IDENTIFIED BY 'pass';
+
 USE course;
 
 DROP TABLE IF EXISTS people;

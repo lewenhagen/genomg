@@ -1,7 +1,6 @@
 (async function() {
     const mysql = require("promise-mysql");
     const config = require("./config.json");
-    const queries = require("./queries");
     const cTable = require('console.table');
     const db = await mysql.createConnection(config);
     const readline = require("readline");
@@ -22,7 +21,7 @@
             + `  exit, quit, ctrl-d - to exit the program.\n`
             + `  help, menu    - to show this menu.\n`
             + `  people        - show info about persons.\n`
-            + `  current       - Show current persons/projects.\n`
+            + `  current       - Show current persons/projects (View).\n`
             + `  find <string> - Search in person names. \n`
         );
     }
@@ -32,7 +31,7 @@
     rl.prompt();
 
     rl.on("close", process.exit);
-    rl.on("line", async (line) => {
+    rl.on("line", (line) => {
         line = line.trim();
 
         switch (line) {
@@ -44,10 +43,6 @@
             case "help":
             case "menu":
                 showMenu();
-                break;
-            case "people":
-                let res = await queries.people(db);
-                console.table(res);
                 break;
             default:
                 console.log(line + " does not match any command.");

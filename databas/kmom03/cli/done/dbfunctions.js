@@ -54,13 +54,17 @@ let dbfunctions = {
         str += "+---------------------+-------------------------+--------------------+\n";
         return str;
     },
+    
     findPerson: async function(db, search) {
+        let like = `%${search}%`;
         let sql;
         let res;
         let str;
-        sql = "SELECT firstname, lastname, born FROM people WHERE CONCAT(firstname, lastname) LIKE '%"+search+"%';";
+        sql = `SELECT firstname, lastname, born FROM people WHERE CONCAT(firstname, lastname) LIKE ?;`;
 
-        res = await db.query(sql);
+        // sql = "SELECT firstname, lastname, born FROM people WHERE CONCAT(firstname, lastname) LIKE '%"+search+"%';";
+
+        res = await db.query(sql, [like]);
 
         str = "+---------------------+------------+\n";
         str += "| Namn                | Född       |\n";

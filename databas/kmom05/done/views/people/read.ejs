@@ -1,0 +1,52 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show all people in database</h1>
+<!-- <h1>People in TV shows</h1>
+<ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul> -->
+<table>
+<tr>
+    <th>id</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Born</th>
+    <th>Action</th>
+</tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.id %></td>
+        <td><%= row.firstname %></td>
+        <td><%= row.lastname %></td>
+        <td><%= row.born %></td>
+        <td>
+            <a href="/people/edit/<%= row.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="/people/delete/<%= row.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+<!-- <table>
+    <tr>
+        <th>Id</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Born</th>
+        <th>Tvshow id</th>
+        <th>Places id</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.id %></td>
+        <td><%= row.firstname %></td>
+        <td><%= row.lastname %></td>
+        <td><%= row.born %></td>
+        <td><%= row.tvshows_id %></td>
+        <td><%= row.places_id %></td>
+    </tr>
+<% }; %>
+</table> -->
+
+<%- include("footer"); %>

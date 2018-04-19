@@ -1,0 +1,39 @@
+<%- include("header", {title: title}); %>
+<!-- <% res = res[0] %> -->
+
+<h1>Delete person with id <%= id %></h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul> -->
+<!-- <% res = res[0] %> -->
+
+<form class="label-left" method="post" action="/people/delete">
+    <fieldset>
+        <legend>About to delete person:</legend>
+
+        <label for="id">Id</label>
+        <input id="id" type="text" name="id" readonly value="<%= res.id %>">
+
+        <label for="fname">Firstname</label>
+        <input id="fname" type="text" name="fname" readonly value="<%= res.firstname %>">
+
+        <label for="lname">Lastname</label>
+        <input id="lname" type="text" name="lname" readonly value="<%= res.lastname %>">
+
+        <label for="born">Born</label>
+        <input id="born" type="text" name="born" readonly value="<%= res.born %>">
+
+        <label for="tvshow_id">Tv id</label>
+        <input id="tvshow_id" type="number" name="tvshow_id" readonly value="<%= res.tvshows_id %>">
+
+        <label for="placee_id">Place id</label>
+        <input id="place_id" type="number" name="place_id" readonly value="<%= res.places_id %>">
+
+        <input type="submit" name="doit" value="Delete">
+    </fieldset>
+</form>
+
+
+<%- include("footer"); %>

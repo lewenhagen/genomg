@@ -1,0 +1,23 @@
+<%- include("header", {title: title}); %>
+
+<h1>Create person</h1>
+
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Create person</legend>
+
+        <label for="fname">First name</label>
+        <input id="fname" type="text" name="fname">
+
+        <label for="lname">Last name</label>
+        <input id="lname" type="text" name="lname">
+
+        <label for="born">Born</label>
+        <input id="born" type="text" placeholder="YYYY-MM-DD" name="born">
+
+        <input type="submit" name="doit" value="Create">
+    </fieldset>
+</form>
+
+
+<%- include("footer"); %>

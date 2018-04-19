@@ -1,0 +1,38 @@
+<%- include("header", {title: title}); %>
+<% res = res[0] %>
+
+<h1>Info on id <%= id %></h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>  -->
+<% res = res[0] %>
+<form class="label-left" method="post" action="/people/edit">
+    <fieldset>
+        <legend>Edit person information</legend>
+
+        <label for="id">Id</label>
+        <input id="id" type="text" name="id" readonly value="<%= res.id %>">
+
+        <label for="fname">Firstname</label>
+        <input id="fname" type="text" name="fname" value="<%= res.firstname %>">
+
+        <label for="lname">Lastname</label>
+        <input id="lname" type="text" name="lname" value="<%= res.lastname %>">
+
+        <label for="born">Born</label>
+        <input id="born" type="text" name="born" value="<%= res.born %>">
+
+        <label for="tvshow_id">Tv id</label>
+        <input id="tvshow_id" type="number" name="tvshow_id" value="<%= res.tvshows_id %>">
+
+        <label for="placee_id">Place id</label>
+        <input id="place_id" type="number" name="place_id" value="<%= res.places_id %>">
+
+        <input type="submit" name="doit" value="Edit">
+    </fieldset>
+</form>
+
+
+<%- include("footer"); %>

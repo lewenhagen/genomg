@@ -11,7 +11,9 @@ module.exports = {
     deletePerson: deletePerson,
     getAllPeopleExt: getAllPeopleExt,
     getPlaces: getPlaces,
-    getTvshows: getTvshows
+    getTvshows: getTvshows,
+    getAllPlaces: getAllPlaces,
+    createPlace: createPlace
 };
 
 const mysql  = require("promise-mysql");
@@ -30,6 +32,14 @@ let db;
         db.end();
     });
 })();
+
+async function getAllPlaces() {
+    let sql = `CALL getAllPlaces();`;
+    let res;
+    res = await db.query(sql);
+
+    return res;
+}
 
 
 async function findAllInTable(table) {
@@ -90,6 +100,12 @@ async function getPlaces() {
 
     res = await db.query(sql);
     return res;
+}
+
+async function createPlace(city, country) {
+    let sql = `CALL createPlace(?, ?);`;
+
+    await db.query(sql, [city, country]);
 }
 
 async function getTvshows() {

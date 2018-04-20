@@ -91,4 +91,4 @@ INSERT INTO people (firstname, lastname, born, places_id) VALUES
     ("Katheryn", "Winnick", "1977-12-17", 1)
 ;
 
-SELECT * FROM places;
+-- SELECT * FROM places;

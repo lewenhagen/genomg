@@ -24,6 +24,23 @@ router.get("/read-all", async (req, res) => {
     res.render("people/read-all", data);
 });
 
+router.get("/places", async (req, res) => {
+    let data = {
+        title: "All places in the database"
+    };
+
+    data.res = await crud.getAllPlaces();
+    res.render("people/places", data);
+});
+
+router.post("/places", urlencodedParser, async (req, res) => {
+
+    // console.log(JSON.stringify(req.body, null, 4));
+    await crud.createPlace(req.body.city, req.body.country);
+
+    res.redirect("/people/places");
+});
+
 router.get("/create", async (req, res) => {
     let data = {
         title: "Create person"

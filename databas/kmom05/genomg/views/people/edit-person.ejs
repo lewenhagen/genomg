@@ -1,0 +1,56 @@
+<%- include("header", {title: title}); %>
+<% res = res[0] %>
+
+<h1>Info on id <%= id %></h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul> -->
+<% res = res[0] %>
+<form class="label-left" method="post" action="/people/edit">
+    <fieldset>
+        <legend>Edit person information</legend>
+
+        <label for="id">Id</label>
+        <input id="id" type="text" name="id" readonly value="<%= res.id %>">
+
+        <label for="fname">Firstname</label>
+        <input id="fname" type="text" name="fname" value="<%= res.firstname %>">
+
+        <label for="lname">Lastname</label>
+        <input id="lname" type="text" name="lname" value="<%= res.lastname %>">
+
+        <label for="born">Born</label>
+        <input id="born" type="text" name="born" value="<%= res.born %>">
+
+        <!-- <label for="curr_tvshow">Current Tv show</label>
+        <input id="curr_tvshow" type="text" name="curr_tvshow" readonly value="<%= res.title %>"> -->
+
+        <label for="project">TV show</label>
+        <select name="tvshow" id="project">
+            <option value="" selected>No current project</option>
+            <% for (const row of tvshows[0]) { %>
+                <option value="<%= row.id %>" <%= (row.title === res.title) ? "selected" : ""  %>><%= row.title %></option>
+                <% }; %>
+        </select>
+
+        <!-- <label for="curr_place">Current place</label>
+        <input id="curr_place" type="text" name="curr_place" readonly value="<%= res.place %>"> -->
+
+        <label for="place">Place</label>
+        <select name="place" id="place">
+            <option value="" selected>No current place</option>
+            <% for (const row of places[0]) { %>
+                <option value="<%= row.id %>" <%= (row.place === res.place) ? "selected" : ""  %>><%= row.place %></option>
+            <% }; %>
+        </select>
+        <br>
+
+
+        <input type="submit" name="doit" value="Edit">
+    </fieldset>
+</form>
+
+
+<%- include("footer"); %>

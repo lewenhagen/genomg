@@ -8,7 +8,10 @@ module.exports = {
     createPerson: createPerson,
     showOne: showOne,
     editPerson: editPerson,
-    deletePerson: deletePerson
+    deletePerson: deletePerson,
+    getAllPeopleExt: getAllPeopleExt,
+    getPlaces: getPlaces,
+    getTvshows: getTvshows
 };
 
 const mysql  = require("promise-mysql");
@@ -43,20 +46,23 @@ async function showOne(id) {
     let res;
 
     res = await db.query(sql, [id]);
-
     return res;
 }
 
-async function createPerson(fname, lname, born) {
-    let sql = `CALL createPerson(?, ?, ?);`;
+async function createPerson(fname, lname, born, place, tvshow) {
+    console.log(typeof(tvshow));
+    tvshow = (tvshow === "") ? null : parseInt(tvshow);
+    console.log(typeof(tvshow));
+
+    let sql = `CALL createPerson(?, ?, ?, ?, ?);`;
     let res;
 
-    res = await db.query(sql, [fname, lname, born]);
-    console.log(res);
-    console.info(`SQL: ${sql} got ${res.length} rows.`);
+    res = await db.query(sql, [fname, lname, born, place, tvshow]);
 }
 
 async function editPerson(id, fname, lname, born, tvshow_id, place_id) {
+    tvshow_id = (tvshow_id === "") ? null : parseInt(tvshow_id);
+    place_id = (place_id === "") ? null : parseInt(place_id);
     let sql = `CALL editPerson(?, ?, ?, ?, ?, ?)`;
     let res;
 
@@ -70,6 +76,29 @@ async function deletePerson(id) {
     res = await db.query(sql, [id]);
 }
 
+async function getAllPeopleExt() {
+    let sql = `CALL showAllExtended()`;
+    let res;
+
+    res = await db.query(sql);
+    return res;
+}
+
+async function getPlaces() {
+    let sql = `CALL getPlaces()`;
+    let res;
+
+    res = await db.query(sql);
+    return res;
+}
+
+async function getTvshows() {
+    let sql = `CALL getTvshows()`;
+    let res;
+
+    res = await db.query(sql);
+    return res;
+}
 
 async function getAllPeople() {
     return findAllInTable("people");

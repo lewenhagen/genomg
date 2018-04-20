@@ -5,15 +5,17 @@ DELIMITER //
 CREATE PROCEDURE createPerson(
     pfname VARCHAR(20),
     plname VARCHAR(20),
-    pborn DATE
+    pborn DATE,
+    pplace INT,
+    ptvshow INT
 )
 BEGIN
-    INSERT INTO people (firstname, lastname, born) VALUES (pfname, plname, pborn);
+    INSERT INTO people (firstname, lastname, born, tvshows_id, places_id) VALUES (pfname, plname, pborn, ptvshow, pplace);
 END
 //
 DELIMITER ;
 
--- -----------------------------------
+-- SHOW ONE PERSON -----------------------------------
  
 DROP PROCEDURE IF EXISTS showOne;
 DELIMITER //
@@ -21,7 +23,70 @@ CREATE PROCEDURE showOne(
     pid INT
 )
 BEGIN
-    SELECT id, firstname, lastname, DATE_FORMAT(born, "%Y-%m-%d") AS born, tvshows_id, places_id from people WHERE id = pid;
+    SELECT
+		p.id, 
+        p.firstname, 
+        p.lastname, 
+        DATE_FORMAT(p.born, "%Y-%m-%d") AS born, 
+        ts.title, 
+        CONCAT(pl.city, ", ", pl.country) AS place 
+	FROM people AS p
+		LEFT OUTER JOIN tvshows AS ts
+			ON p.tvshows_id = ts.id
+		LEFT OUTER JOIN places AS pl
+			ON p.places_id = pl.id
+    WHERE p.id = pid;
+END
+//
+DELIMITER ;
+
+CALL showOne(22);
+
+-- SHOW ALL PERSONS EXTENDED -----------------------------------
+ 
+DROP PROCEDURE IF EXISTS showAllExtended;
+DELIMITER //
+CREATE PROCEDURE showAllExtended()
+BEGIN
+    SELECT * FROM VpersonsExtended;
+END
+//
+DELIMITER ;
+
+
+-- GET PLACES -----------------------------------
+ 
+DROP PROCEDURE IF EXISTS getPlaces;
+DELIMITER //
+CREATE PROCEDURE getPlaces()
+BEGIN
+    SELECT id, CONCAT(city, ", ", country) AS place FROM places;
+END
+//
+DELIMITER ;
+
+-- GET ALL PLACES -----------------------------------
+ 
+DROP PROCEDURE IF EXISTS getAllPlaces;
+DELIMITER //
+CREATE PROCEDURE getAllPlaces()
+BEGIN
+    SELECT id,
+    city, 
+    country
+FROM places;
+END
+//
+DELIMITER ;
+
+
+-- GET TVSHOWS -----------------------------------
+ 
+DROP PROCEDURE IF EXISTS getTvshows;
+DELIMITER //
+CREATE PROCEDURE getTvshows()
+BEGIN
+    SELECT id, title FROM tvshows;
 END
 //
 DELIMITER ;
@@ -65,4 +130,4 @@ END
 DELIMITER ;
 
 
-CALL showOne(1);
+-- CALL showOne(1);

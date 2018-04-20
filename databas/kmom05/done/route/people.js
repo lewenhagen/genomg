@@ -15,10 +15,22 @@ router.get("/read", async (req, res) => {
     res.render("people/read", data);
 });
 
-router.get("/create", (req, res) => {
+router.get("/read-all", async (req, res) => {
+    let data = {
+        title: "All people in the database (extended)"
+    };
+
+    data.res = await crud.getAllPeopleExt();
+    res.render("people/read-all", data);
+});
+
+router.get("/create", async (req, res) => {
     let data = {
         title: "Create person"
     };
+
+    data.places = await crud.getPlaces();
+    data.tvshows = await crud.getTvshows();
 
     res.render("people/create", data);
 });
@@ -26,7 +38,7 @@ router.get("/create", (req, res) => {
 router.post("/create", urlencodedParser, async (req, res) => {
 
     // console.log(JSON.stringify(req.body, null, 4));
-    await crud.createPerson(req.body.fname, req.body.lname, req.body.born);
+    await crud.createPerson(req.body.fname, req.body.lname, req.body.born, req.body.place, req.body.tvshow);
 
     res.redirect("/people/read");
 });
@@ -51,12 +63,14 @@ router.get("/edit/:id", async (req, res) => {
     };
 
     data.res = await crud.showOne(id);
+    data.places = await crud.getPlaces();
+    data.tvshows = await crud.getTvshows();
 
-    res.render("people/person-edit", data);
+    res.render("people/edit-person", data);
 });
 
 router.post("/edit", urlencodedParser, async (req, res) => {
-    await crud.editPerson(req.body.id, req.body.fname, req.body.lname, req.body.born, req.body.tvshow_id, req.body.place_id);
+    await crud.editPerson(req.body.id, req.body.fname, req.body.lname, req.body.born, req.body.tvshow, req.body.place);
     res.redirect(`/people/edit/${req.body.id}`);
 });
 

@@ -8,7 +8,7 @@ const router  = express.Router();
 
 router.get("/", (req, res) => {
     let data = {
-        title: "Welcome to the Agency"
+        title: "Welcome"
     };
 
     res.render("people/index", data);

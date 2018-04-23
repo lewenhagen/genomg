@@ -1,5 +1,9 @@
 USE course;
 
+
+
+-- CREATE PERSON -----------------------------------
+
 DROP PROCEDURE IF EXISTS createPerson;
 DELIMITER //
 CREATE PROCEDURE createPerson(
@@ -14,6 +18,8 @@ BEGIN
 END
 //
 DELIMITER ;
+
+
 
 -- SHOW ONE PERSON -----------------------------------
  
@@ -40,7 +46,7 @@ END
 //
 DELIMITER ;
 
-CALL showOne(22);
+
 
 -- SHOW ALL PERSONS EXTENDED -----------------------------------
  
@@ -54,6 +60,7 @@ END
 DELIMITER ;
 
 
+
 -- GET PLACES -----------------------------------
  
 DROP PROCEDURE IF EXISTS getPlaces;
@@ -64,6 +71,8 @@ BEGIN
 END
 //
 DELIMITER ;
+
+
 
 -- GET ALL PLACES -----------------------------------
  
@@ -80,6 +89,7 @@ END
 DELIMITER ;
 
 
+
 -- GET TVSHOWS -----------------------------------
  
 DROP PROCEDURE IF EXISTS getTvshows;
@@ -91,7 +101,9 @@ END
 //
 DELIMITER ;
 
--- -------------------------
+
+
+-- EDIT PERSON -------------------------
 
 DROP PROCEDURE IF EXISTS editPerson;
 DELIMITER //
@@ -116,7 +128,9 @@ END
 //
 DELIMITER ;
 
--- -------------------------
+
+
+-- DELETE PERSON -------------------------
 
 DROP PROCEDURE IF EXISTS deletePerson;
 DELIMITER //
@@ -128,6 +142,3 @@ BEGIN
 END
 //
 DELIMITER ;
-
-
--- CALL showOne(1);

@@ -42,11 +42,11 @@ async function getAllPlaces() {
 }
 
 
-async function findAllInTable(table) {
-    let sql = `SELECT id, firstname, lastname, DATE_FORMAT(born, "%Y-%m-%d") AS born FROM ??;`;
+async function getAllPeople() {
+    let sql = `SELECT id, firstname, lastname, DATE_FORMAT(born, "%Y-%m-%d") AS born FROM people;`;
     let res;
 
-    res = await db.query(sql, [table]);
+    res = await db.query(sql);
 
     return res;
 }
@@ -114,8 +114,4 @@ async function getTvshows() {
 
     res = await db.query(sql);
     return res;
-}
-
-async function getAllPeople() {
-    return findAllInTable("people");
 }

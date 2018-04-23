@@ -40,7 +40,7 @@ router.post("/create", urlencodedParser, async (req, res) => {
     // console.log(JSON.stringify(req.body, null, 4));
     await crud.createPerson(req.body.fname, req.body.lname, req.body.born, req.body.place, req.body.tvshow);
 
-    res.redirect("/people/read");
+    res.redirect("/people/read-all");
 });
 
 router.get("/info/:id", async (req, res) => {
@@ -89,7 +89,7 @@ router.get("/delete/:id", async (req, res) => {
 router.post("/delete", urlencodedParser, async (req, res) => {
     let id = req.body.id;
     await crud.deletePerson(id);
-    res.redirect(`/people/read`);
+    res.redirect(`/people/read-all`);
 });
 
 

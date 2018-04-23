@@ -5,11 +5,11 @@
 
 module.exports = {
     getAllPeople: getAllPeople,
+    getAllPeopleExt: getAllPeopleExt,
     createPerson: createPerson,
     showOne: showOne,
     editPerson: editPerson,
     deletePerson: deletePerson,
-    getAllPeopleExt: getAllPeopleExt,
     getPlaces: getPlaces,
     getTvshows: getTvshows
 };
@@ -32,20 +32,20 @@ let db;
 })();
 
 
-async function findAllInTable(table) {
-    let sql = `SELECT id, firstname, lastname, DATE_FORMAT(born, "%Y-%m-%d") AS born FROM ??;`;
+async function getAllPeople() {
+    let sql = `SELECT id, firstname, lastname, DATE_FORMAT(born, "%Y-%m-%d") AS born FROM people;`;
     let res;
 
-    res = await db.query(sql, [table]);
+    res = await db.query(sql);
 
     return res;
 }
 
-async function showOne(id) {
-    let sql = `CALL showOne(?);`;
+async function getAllPeopleExt() {
+    let sql = `CALL showAllExtended()`;
     let res;
 
-    res = await db.query(sql, [id]);
+    res = await db.query(sql);
     return res;
 }
 
@@ -58,6 +58,14 @@ async function createPerson(fname, lname, born, place, tvshow) {
     let res;
 
     res = await db.query(sql, [fname, lname, born, place, tvshow]);
+}
+
+async function showOne(id) {
+    let sql = `CALL showOne(?);`;
+    let res;
+
+    res = await db.query(sql, [id]);
+    return res;
 }
 
 async function editPerson(id, fname, lname, born, tvshow_id, place_id) {
@@ -76,14 +84,6 @@ async function deletePerson(id) {
     res = await db.query(sql, [id]);
 }
 
-async function getAllPeopleExt() {
-    let sql = `CALL showAllExtended()`;
-    let res;
-
-    res = await db.query(sql);
-    return res;
-}
-
 async function getPlaces() {
     let sql = `CALL getPlaces()`;
     let res;
@@ -98,8 +98,4 @@ async function getTvshows() {
 
     res = await db.query(sql);
     return res;
-}
-
-async function getAllPeople() {
-    return findAllInTable("people");
 }

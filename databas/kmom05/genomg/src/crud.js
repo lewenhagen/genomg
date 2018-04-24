@@ -50,9 +50,7 @@ async function getAllPeopleExt() {
 }
 
 async function createPerson(fname, lname, born, place, tvshow) {
-    console.log(typeof(tvshow));
     tvshow = (tvshow === "") ? null : parseInt(tvshow);
-    console.log(typeof(tvshow));
 
     let sql = `CALL createPerson(?, ?, ?, ?, ?);`;
     let res;

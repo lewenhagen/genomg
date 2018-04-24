@@ -43,18 +43,6 @@ router.post("/create", urlencodedParser, async (req, res) => {
     res.redirect("/people/read-all");
 });
 
-router.get("/info/:id", async (req, res) => {
-    let id = req.params.id;
-    let data = {
-        title: `Info`,
-        id: id
-    };
-
-    data.res = await crud.showOne(id);
-
-    res.render("people/info", data);
-});
-
 router.get("/edit/:id", async (req, res) => {
     let id = req.params.id;
     let data = {

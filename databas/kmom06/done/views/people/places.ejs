@@ -1,0 +1,42 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show all places in database</h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>  -->
+<% res = res[0] %>
+<table>
+<tr>
+    <th>id</th>
+    <th>City</th>
+    <th>Country</th>
+</tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.id %></td>
+        <td><%= row.city %></td>
+        <td><%= row.country %></td>
+
+        <!-- <td>
+            <a href="/people/edit/<%= row.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="/people/delete/<%= row.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+        </td> -->
+    </tr>
+<% }; %>
+</table>
+<h2>Create place</h2>
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Create place</legend>
+        <label for="city">City</label>
+        <input id="city" type="text" name="city">
+
+        <label for="country">Country</label>
+        <input id="country" type="text" name="country">
+
+        <input type="submit" name="doit" value="Create">
+    </fieldset>
+</form>
+<%- include("footer"); %>

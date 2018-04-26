@@ -1,0 +1,38 @@
+<%- include("header", {title: title}); %>
+
+<h1>Create person</h1>
+
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Create person</legend>
+
+        <label for="fname">First name</label>
+        <input id="fname" type="text" name="fname">
+
+        <label for="lname">Last name</label>
+        <input id="lname" type="text" name="lname">
+
+        <label for="born">Born</label>
+        <input id="born" type="text" placeholder="YYYY-MM-DD" name="born">
+
+        <label for="place">Place</label>
+        <select name="place" id="place">
+            <% for (const row of places[0]) { %>
+                <option value="<%= row.id %>"><%= row.place %></option>
+            <% }; %>
+        </select>
+        <br>
+        <label for="project">Project</label>
+        <select name="tvshow" id="project">
+            <option value="" selected>No current project...</option>
+            <% for (const row of tvshows[0]) { %>
+                <option value="<%= row.id %>"><%= row.title %></option>
+                <% }; %>
+        </select>
+
+        <input type="submit" name="doit" value="Create">
+    </fieldset>
+</form>
+
+
+<%- include("footer"); %>

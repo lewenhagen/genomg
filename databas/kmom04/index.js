@@ -1,9 +1,9 @@
 "use strict";
 
 const port = 1337;
-const path    = require("path");
+const path = require("path");
 const express = require("express");
-const app     = express();
+const app = express();
 
 const routeIndex = require("./route/index.js");
 

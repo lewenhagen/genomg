@@ -1,0 +1,11 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show all</h1>
+
+<ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>
+
+<%- include("footer"); %>

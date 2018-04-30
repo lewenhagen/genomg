@@ -142,3 +142,20 @@ BEGIN
 END
 //
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS createPlace;
+DELIMITER //
+CREATE PROCEDURE createPlace(
+    pcity VARCHAR(40),
+    pcountry VARCHAR(20),
+)
+BEGIN
+    INSERT INTO people (firstname, lastname, born, tvshows_id, places_id) VALUES (pfname, plname, pborn, ptvshow, pplace);
+END
+//
+DELIMITER ;
+
+
+
+
+

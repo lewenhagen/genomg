@@ -80,6 +80,31 @@ router.post("/delete", urlencodedParser, async (req, res) => {
     res.redirect(`/people/read-all`);
 });
 
+router.get("/place", async (req, res) => {
+    let data = {
+        title: `Places`,
+    };
+
+    data.res = await crud.getAllPlaces();
+
+    res.render("people/places", data);
+});
+
+router.post("/place", urlencodedParser, async (req, res) => {
+    let city = req.body.city;
+    let country = req.body.country;
+
+    await crud.createPlace(city, country);
+    res.redirect("people/place");
+});
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

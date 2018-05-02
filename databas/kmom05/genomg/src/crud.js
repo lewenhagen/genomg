@@ -11,7 +11,9 @@ module.exports = {
     editPerson: editPerson,
     deletePerson: deletePerson,
     getPlaces: getPlaces,
-    getTvshows: getTvshows
+    getTvshows: getTvshows,
+    getAllPlaces: getAllPlaces,
+    createPlace: createPlace
 };
 
 const mysql  = require("promise-mysql");
@@ -88,6 +90,21 @@ async function getPlaces() {
 
     res = await db.query(sql);
     return res;
+}
+
+async function getAllPlaces() {
+    let sql = `CALL getAllPlaces();`;
+    let res;
+
+    res = await db.query(sql);
+    return res;
+}
+
+async function createPlace(city, country) {
+    let sql = `CALL createPlace(?, ?);`;
+    let res;
+
+    res = await db.query(sql, [city, country]);
 }
 
 async function getTvshows() {

@@ -1,0 +1,44 @@
+<%- include("header", {title: title}); %>
+
+<h1>Places</h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>  -->
+<% res = res[0] %>
+<table>
+<tr>
+    <th>id</th>
+    <th>City</th>
+    <th>Country</th>
+</tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.id %></td>
+        <td><%= row.city %></td>
+        <td><%= row.country %></td>
+    </tr>
+<% }; %>
+</table>
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Create Place</legend>
+        <label for="city">City</label>
+        <input type="text" id="city" name="city">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country">
+        <input type="submit" name="doIt" value="Create">
+    </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+<%- include("footer"); %>

@@ -1,0 +1,49 @@
+<%- include("../header", {title: title}); %>
+<!-- <% res = res[0] %> -->
+
+<h1>Delete person with id <%= id %></h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul> -->
+<!-- <% res = res[0] %> -->
+
+<form method="post" action="/people/delete">
+    <div class="row">
+        <div class="two columns">
+            <label for="id">Id</label>
+            <input id="id" class="u-full-width" type="text" name="id" readonly value="<%= res.id %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <label for="fname">Firstname</label>
+            <input id="fname" class="u-full-width" type="text" name="fname" readonly value="<%= res.firstname %>">
+        </div>
+        <div class="six columns">
+            <label for="lname">Lastname</label>
+            <input id="lname" class="u-full-width" type="text" name="lname" readonly value="<%= res.lastname %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="two columns">
+            <label for="born">Born</label>
+            <input id="born" class="u-full-width" type="text" name="born" readonly value="<%= res.born %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <label for="tvshow">Tv show</label>
+            <input id="tvshow" class="u-full-width" type="text" name="tvshow" readonly value="<%= res.title %>">
+        </div>
+        <div class="six columns">
+            <label for="place">Place</label>
+            <input id="place" class="u-full-width" type="text" name="place" readonly value="<%= res.place %>">
+        </div>
+    </div>
+        <input type="submit" name="doit" value="Delete">
+</form>
+
+
+<%- include("../footer"); %>

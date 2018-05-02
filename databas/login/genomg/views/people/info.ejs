@@ -1,0 +1,30 @@
+<%- include("../header", {title: title}); %>
+
+<h1>Info on id <%= id %></h1>
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>  -->
+<table>
+<tr>
+    <th>id</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Born</th>
+    <th>Tvshow id</th>
+    <th>Places id</th>
+</tr>
+<% for (const row of res[0]) { %>
+    <tr>
+        <td><%= row.id %></td>
+        <td><%= row.firstname %></td>
+        <td><%= row.lastname %></td>
+        <td><%= row.born %></td>
+        <td><%= row.tvshows_id %></td>
+        <td><%= row.places_id %></td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("../footer"); %>

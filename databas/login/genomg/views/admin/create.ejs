@@ -1,0 +1,46 @@
+<%- include("../header", {title: title}); %>
+
+<h3>Create person</h3>
+
+<form method="post">
+        <div class="row">
+            <div class="four columns">
+                <label for="fname">First name</label>
+                <input id="fname" class="u-full-width" type="text" name="fname">
+            </div>
+            <div class="four columns">
+                <label for="lname">Last name</label>
+                <input id="lname" class="u-full-width" type="text" name="lname">
+            </div>
+            <div class="four columns">
+                <label for="born">Born</label>
+                <input id="born" class="u-full-width" type="text" placeholder="YYYY-MM-DD" name="born">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="three columns">
+                <label for="place">Place</label>
+                <select name="place" id="place" class="u-full-width">
+                    <% for (const row of places[0]) { %>
+                        <option value="<%= row.id %>"><%= row.place %></option>
+                    <% }; %>
+                </select>
+            </div>
+            <div class="three columns">
+                <label for="project">Project</label>
+                <select name="tvshow" id="project" class="u-full-width">
+                    <option value="" selected>No current project...</option>
+                    <% for (const row of tvshows[0]) { %>
+                        <option value="<%= row.id %>"><%= row.title %></option>
+                        <% }; %>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" name="doit" value="Create">
+        </div>
+</form>
+
+
+<%- include("../footer"); %>

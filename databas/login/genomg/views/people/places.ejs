@@ -1,0 +1,50 @@
+<%- include("../header", {title: title}); %>
+
+<!-- <ul>
+<% for (const row of res) { %>
+    <li><%= JSON.stringify(row) %></li>
+<% }; %>
+</ul>  -->
+<% res = res[0] %>
+<div class="row">
+    <div class="four columns">
+        <h3>All places</h3>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const row of res) { %>
+                    <tr>
+                        <td><%= row.id %></td>
+                        <td><%= row.city %></td>
+                        <td><%= row.country %></td>
+                    </tr>
+                <% }; %>
+            </tbody>
+        </table>
+    </div>
+    <div class="one columns">&nbsp;</div>
+    <div class="six columns">
+        <h3>Create place</h3>
+        <form method="post">
+            <div class="row">
+                <div class="six columns">
+                    <label for="city">City</label>
+                    <input id="city" type="text" name="city">
+                </div>
+                <div class="six columns">
+                    <label for="country">Country</label>
+                    <input id="country" type="text" name="country">
+                </div>
+            </div>
+            <input type="submit" name="doit" value="Create">
+
+        </form>
+    </div>
+</div>
+<%- include("../footer"); %>

@@ -1,0 +1,39 @@
+<%- include("../header", {title: title}); %>
+
+<h3>Show all</h3>
+
+<% res = res[0] %>
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Born</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Tv show</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const row of res) { %>
+        <tr>
+            <td><%= row.id %></td>
+            <td><%= row.firstname %></td>
+            <td><%= row.lastname %></td>
+            <td><%= row.born %></td>
+            <td><%= row.city %></td>
+            <td><%= row.country %></td>
+            <td><%= row.title %></td>
+
+            <td>
+                <a href="/people/edit/<%= row.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="/people/delete/<%= row.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        <% }; %>
+    </tbody>
+</table>
+
+<%- include("../footer"); %>

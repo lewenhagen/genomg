@@ -19,7 +19,6 @@ INSERT INTO user VALUES
 	("admin", MD5("admin"))
 ;
 
-
 --
 -- SP to login
 --
@@ -41,4 +40,3 @@ END
 //
 DELIMITER ;
 
-CALL loginUser("doe", "doe");

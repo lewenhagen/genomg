@@ -20,12 +20,8 @@ app.use(session({
 
 app.use(middleware.logIncomingToConsole);
 app.use(express.static(path.join(__dirname, "public")));
-// app.use("/people/create", middleware.authenticatedOrLogin);
-// app.use("/people/edit", middleware.authenticatedOrLogin);
-// app.use("/people/delete", middleware.authenticatedOrLogin);
 app.use("/", routeIndex);
 app.use("/admin", middleware.authenticatedOrLogin, routeAdmin);
-// app.use("/admin", routeAdmin);
 app.use("/people", routePeople);
 app.use("/user", routeUser);
 app.listen(port, logStartUpDetailsToConsole);

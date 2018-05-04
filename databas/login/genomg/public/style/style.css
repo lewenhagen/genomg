@@ -45,3 +45,10 @@ footer {
     width: 100%;
 
 }
+
+.flash {
+    border: 0.5px solid black;
+    background: rgba(0, 255, 0, .7);
+    padding: 1em;
+    text-align: center;
+}

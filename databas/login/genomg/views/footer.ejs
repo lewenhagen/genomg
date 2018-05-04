@@ -1,5 +1,14 @@
 </div>
 
 <footer>
-    <p>Copyright &copy; Awesome footer</p>&nbsp;<a href="/user/logout">Logout</a>
+    Copyright &copy; Awesome footer
+    <div class="two columns">
+        <% if (user != null) { %>
+            Inloggad som: <strong><%= user %></strong>
+            <a href="/user/logout">Logout</a>
+        <% } else { %>
+            Inte inloggad.
+            <a href="/user/login">Login</a>
+        <% }; %>
+    </div>
 </footer>

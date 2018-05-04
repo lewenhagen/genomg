@@ -4,7 +4,8 @@
 "use strict";
 
 module.exports = {
-    login: login
+    login: login,
+    getFlash: getFlash
 };
 
 const mysql  = require("promise-mysql");
@@ -46,4 +47,15 @@ async function login(username, password) {
     console.info(`SQL: ${sql} got ${res.length} rows.`);
 
     return res[0];
+}
+
+
+
+async function getFlash(session) {
+    let msg;
+    if (session.flash) {
+        msg = session.flash;
+        delete session.flash;
+    }
+    return msg;
 }

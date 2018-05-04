@@ -8,10 +8,11 @@ const router  = express.Router();
 
 router.get("/", (req, res) => {
     let data = {
-        title: "Welcome to the Agency"
+        title: "Welcome",
+        user: req.session.acronym || null
     };
 
-    res.render("people/index", data);
+    res.render("index", data);
 });
 
 module.exports = router;

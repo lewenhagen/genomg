@@ -31,7 +31,7 @@
     <div class="one columns">&nbsp;</div>
     <div class="six columns">
         <h3>Create place</h3>
-        <form method="post">
+        <form method="post" action="/../admin/create-place">
             <div class="row">
                 <div class="six columns">
                     <label for="city">City</label>
@@ -45,6 +45,13 @@
             <input type="submit" name="doit" value="Create">
 
         </form>
+        <% if (flash) { %>
+            <div class="row">
+                <div class="twelve columns flash">
+                    <h4><%= flash %></h4>
+                </div>
+            </div>
+        <% }; %>
     </div>
 </div>
 <%- include("../footer"); %>

@@ -9,19 +9,19 @@ SELECT COUNT(firstname) AS Antal, project FROM people GROUP BY project HAVING An
 -- 3 STRÄNGFUNKTIONER
 -- concat
 
-SELECT 
-	CONCAT(project, ' has ', COUNT(firstname), ' actors') AS Result 
-    FROM people 
+SELECT
+	CONCAT(project, ' has ', COUNT(firstname), ' actors') AS Result
+    FROM people
     GROUP BY project
 ;
 
 -- datum/tid
 -- https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html
 
-SELECT 
-	firstname, 
-    lastname, 
-    CONCAT(MONTHNAME(born), ' ', DAY(born)) AS 'Born' 
+SELECT
+	firstname,
+    lastname,
+    CONCAT(MONTHNAME(born), ' ', DAY(born)) AS 'Born'
     FROM people
 ;
 
@@ -31,10 +31,10 @@ DROP VIEW IF EXISTS Vbirthmonth;
 
 CREATE VIEW Vbirthmonth
 	AS
-	SELECT 
-		firstname, 
-        lastname, 
-        MONTHNAME(born) AS 'Born' 
+	SELECT
+		firstname,
+        lastname,
+        MONTHNAME(born) AS 'Born'
         FROM people
 ;
 
@@ -69,18 +69,16 @@ CREATE VIEW Vavailable
 				ON p.project = ts.title
 ;
 
--- Started + 0
--- Started * 1
+
 SELECT * FROM Vavailable ORDER BY Started DESC;
 
--- måste gruppera på project och started
-SELECT 
-	COUNT(Firstname) AS Antal, 
-    Project, 
-    Started 
-FROM Vavailable 
-GROUP BY 
-	Project, 
+
+SELECT
+	COUNT(Firstname) AS Antal,
+    Project,
+    Started
+FROM Vavailable
+GROUP BY
+	Project,
     Started
 ;
-

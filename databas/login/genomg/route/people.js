@@ -3,13 +3,15 @@
 const express = require("express");
 const router = express.Router();
 const crud = require("../src/crud.js");
+const user = require("../src/user.js");
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 router.get("/read-all", async (req, res) => {
     let data = {
-        title: "All people"
+        title: "All people",
+        user: req.session.acronym || null
     };
 
     data.res = await crud.getAllPeopleExt();
@@ -18,31 +20,14 @@ router.get("/read-all", async (req, res) => {
 
 router.get("/places", async (req, res) => {
     let data = {
-        title: "All places in the database"
+        title: "All places in the database",
+        user: req.session.acronym || null
     };
-
+    data.flash = await user.getFlash(req.session);
     data.res = await crud.getAllPlaces();
+
     res.render("people/places", data);
 });
-
-router.post("/places", urlencodedParser, async (req, res) => {
-
-    // console.log(JSON.stringify(req.body, null, 4));
-    await crud.createPlace(req.body.city, req.body.country);
-
-    res.redirect("/people/places");
-});
-
-// router.get("/create", async (req, res) => {
-//     let data = {
-//         title: "Create person"
-//     };
-//
-//     data.places = await crud.getPlaces();
-//     data.tvshows = await crud.getTvshows();
-//
-//     res.render("people/create", data);
-// });
 
 router.post("/create", urlencodedParser, async (req, res) => {
 
@@ -56,49 +41,13 @@ router.get("/info/:id", async (req, res) => {
     let id = req.params.id;
     let data = {
         title: `Info`,
-        id: id
+        id: id,
+        user: req.session.acronym || null
     };
 
     data.res = await crud.showOne(id);
 
     res.render("people/info", data);
-});
-
-router.get("/edit/:id", async (req, res) => {
-    let id = req.params.id;
-    let data = {
-        title: `Edit person ${id}`,
-        id: id
-    };
-
-    data.res = await crud.showOne(id);
-    data.places = await crud.getPlaces();
-    data.tvshows = await crud.getTvshows();
-
-    res.render("people/edit-person", data);
-});
-
-router.post("/edit", urlencodedParser, async (req, res) => {
-    await crud.editPerson(req.body.id, req.body.fname, req.body.lname, req.body.born, req.body.tvshow, req.body.place);
-    res.redirect(`/people/edit/${req.body.id}`);
-});
-
-router.get("/delete/:id", async (req, res) => {
-    let id = req.params.id;
-    let data = {
-        title: `Delete person ${id}`,
-        id: id
-    };
-
-    data.res = await crud.showOne(id);
-
-    res.render("people/delete-person", data);
-});
-
-router.post("/delete", urlencodedParser, async (req, res) => {
-    let id = req.body.id;
-    await crud.deletePerson(id);
-    res.redirect(`/people/read-all`);
 });
 
 

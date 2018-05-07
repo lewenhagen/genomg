@@ -4,10 +4,10 @@
     Copyright &copy; Awesome footer
     <div class="two columns">
         <% if (user != null) { %>
-            Inloggad som: <strong><%= user %></strong>
+            Inloggad som: <strong><%= user %></strong>&nbsp;
             <a href="/user/logout">Logout</a>
         <% } else { %>
-            Inte inloggad.
+            Inte inloggad. &nbsp;
             <a href="/user/login">Login</a>
         <% }; %>
     </div>
